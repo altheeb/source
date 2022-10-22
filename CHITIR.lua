@@ -1355,7 +1355,7 @@ for k,v in pairs(msg.content.member_user_ids) do
 local Info_User = LuaTele.getUser(v) 
 print(v)
 if v == tonumber(CHITIR) then
-local N = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+local N = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
 photo = LuaTele.getUserProfilePhotos(CHITIR)
 local TextBot = '*٠ انا بوت اسمي '..N..'\n٠ وظيفتي حمايه المجموعة من السبام والتفليش الخ....\n٠ لتفعيل البوت قم اضافته للمجموعتك وقم برفعه مشرف واكتب تفعيل\n*'
 keyboard = {} 
@@ -10660,7 +10660,7 @@ if Redis:get(CHITIR.."kit_defullt:") == "true" then
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس جيتر؟ ", 
+"ما هيا عيوب سورس ديكستر؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
@@ -10676,13 +10676,13 @@ if Redis:get(CHITIR.."kit_defullt:") == "true" then
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس جيتر؟ ", 
+" هل يعجبك سورس ديكستر؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس جيتر؟ ", 
+"اي رايك في سورس ديكستر؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " نسبه الندم عندك للي وثقت فيهم ؟", 
@@ -10996,7 +10996,7 @@ if text == "اضف كت" then
         Redis:sadd(CHITIR.."kit:", text)
         return send(msg_chat_id,msg_id,"٠ تم حفظ السؤال","md",false, false, false, false, reply_markup)
     end
-    if text == "جيتر كت" then
+    if text == "ديكستر كت" then
         local list = Redis:smembers(CHITIR.."kit:")
         randk = list[math.random(#list)]
         send(msg_chat_id, msg_id,'['..randk..']',"md",true)
@@ -11711,7 +11711,7 @@ if text == "زخرفه" then
       },
     }
     }
-  return send(msg_chat_id,msg_id, "مرحبا بك في زخرفه جيتر","md",false,false,false,false,reply_markup)
+  return send(msg_chat_id,msg_id, "مرحبا بك في زخرفه ديكستر","md",false,false,false,false,reply_markup)
 end
 -- z eng
 if text and text:match("%a") and Redis:get(CHITIR..msg_chat_id..msg.sender.user_id.."zkrf:") == "zeng" then
@@ -11815,19 +11815,19 @@ data = {
 return send(msg_chat_id,msg_id,"[ ᵗᵐ^𝒅𝒂𝒅.✹⃝⁦꙰🇲🇰𝒂𝒃𝒐.𝒂𝒍𝒎𝒂𝒈𝒅. 𝒆𝒍𝒎𝒆𝒍𝒐𝒌𒀭⸙ꠋꠋꠋꠋꠋꠋꠋꠋ](tg://user?id=5648410452)","md",true, false, false, true, reply_markup)
 end
 
-if text == "تفعيل صورتي" or text == "تفعيل الصوره" then
+if text == "تفعيل افتاري" or text == "تفعيل الصوره" then
 if not msg.Admin then
 send(msg_chat_id,msg_id,'\n*٠ هذا الامر يخص  '..Controller_Num(7)..' * ',"md",true)  
 end
 Redis:del(CHITIR.."myphoto"..msg_chat_id)
-send(msg_chat_id,msg_id,'\n*٠ تم تفعيل امر صورتي * ',"md",true)  
+send(msg_chat_id,msg_id,'\n*٠ تم تفعيل امر افتاري * ',"md",true)  
 end
-if text == "تعطيل صورتي" or text == "تعطيل الصوره" then
+if text == "تعطيل افتاري" or text == "تعطيل الصوره" then
 if not msg.Admin then
 send(msg_chat_id,msg_id,'\n*٠ هذا الامر يخص  '..Controller_Num(7)..' * ',"md",true)  
 end
 Redis:set(CHITIR.."myphoto"..msg_chat_id,"off")
-send(msg_chat_id,msg_id,'\n*٠ تم امر امر صورتي * ',"md",true)  
+send(msg_chat_id,msg_id,'\n*٠ تم امر امر افتاري * ',"md",true)  
 end
 if text == "تفعيل نسبه جمالي" or text == "تفعيل جمالي" then
 if not msg.Admin then
@@ -11887,7 +11887,7 @@ else
 return send(msg_chat_id,msg_id,m,"md",true) 
 end
 end
-if text == "صورتي" then
+if text == "افتاري" then
 if Redis:get(CHITIR.."myphoto"..msg_chat_id) == "off" then
 send(msg_chat_id,msg_id,'*٠ الصوره معطله*',"md",true) 
 else
@@ -13161,7 +13161,7 @@ send(msg.chat_id,msg.id,[[
 ⇠ `ماستر`
 ⇠ `فيزا`
 ⇠ `اكسبرس`
-⇠ `جيتر`
+⇠ `ديكستر`
 
 - اضغط للنسخ
 
@@ -13189,7 +13189,7 @@ Redis:set(CHITIR.."boballban"..creditcc,text)
 Redis:set(CHITIR.."boballid"..creditcc,banid)
 Redis:sadd(CHITIR.."booob",msg.sender.user_id)
 Redis:del(CHITIR.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك جيتر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditcc.."` )\n•  نوع البطاقة ↢ ( ماستر 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)  
+send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك ديكستر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditcc.."` )\n•  نوع البطاقة ↢ ( ماستر 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)  
 end 
 if text == "فيزا" then
 local ban = LuaTele.getUser(msg.sender.user_id)
@@ -13210,9 +13210,9 @@ Redis:set(CHITIR.."boballban"..creditvi,text)
 Redis:set(CHITIR.."boballid"..creditvi,banid)
 Redis:sadd(CHITIR.."booob",msg.sender.user_id)
 Redis:del(CHITIR.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك جيتر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditvi.."` )\n•  نوع البطاقة ↢ ( فيزا 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
+send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك ديكستر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditvi.."` )\n•  نوع البطاقة ↢ ( فيزا 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
 end 
-if text == "جيتر" then
+if text == "ديكستر" then
 local ban = LuaTele.getUser(msg.sender.user_id)
 if ban.first_name then
 news = ""..ban.first_name..""
@@ -13231,7 +13231,7 @@ Redis:set(CHITIR.."boballban"..creditvi,text)
 Redis:set(CHITIR.."boballid"..creditvi,banid)
 Redis:sadd(CHITIR.."booob",msg.sender.user_id)
 Redis:del(CHITIR.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك جيتر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditvi.."` )\n•  نوع البطاقة ↢ ( جيتر 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
+send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك ديكستر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditvi.."` )\n•  نوع البطاقة ↢ ( ديكستر 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
 end 
 if text == "اكسبرس" then
 local ban = LuaTele.getUser(msg.sender.user_id)
@@ -13252,7 +13252,7 @@ Redis:set(CHITIR.."boballban"..creditex,text)
 Redis:set(CHITIR.."boballid"..creditex,banid)
 Redis:sadd(CHITIR.."booob",msg.sender.user_id)
 Redis:del(CHITIR.."booobb" .. msg.chat_id .. ":" .. msg.sender.user_id) 
-send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك جيتر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditex.."` )\n•  نوع البطاقة ↢ ( اكسبرس 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
+send(msg.chat_id,msg.id, "\n• وسوينا لك حساب في بنك ديكستر 🏦\n• وشحنالك 10 دولار 💵 هدية\n\n•  رقم حسابك ↢ ( `"..creditex.."` )\n•  نوع البطاقة ↢ ( اكسبرس 💳 )\n•  فلوسك ↢ ( 10 دولار 💵 )  ","md",true)   
 end 
 end
 if text == "البنك" then
@@ -13312,7 +13312,7 @@ if text == 'فلوسه' or text == 'فلوس' and tonumber(msg.reply_to_message_
 local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-send(msg.chat_id,msg.id,"\n*•  جيتر ماعنده حساب بالبنك 🤣*","md",true)  
+send(msg.chat_id,msg.id,"\n*•  ديكستر ماعنده حساب بالبنك 🤣*","md",true)  
 return false
 end
 if Redis:sismember(CHITIR.."booob",Remsg.sender.user_id) then
@@ -13335,7 +13335,7 @@ cccc = Redis:get(CHITIR.."boobb"..msg.sender.user_id)
 uuuu = Redis:get(CHITIR.."bbobb"..msg.sender.user_id)
 pppp = Redis:get(CHITIR.."zrfff"..msg.sender.user_id) or 0
 ballancee = Redis:get(CHITIR.."boob"..msg.sender.user_id) or 0
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..cccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuu.." )\n•  الرصيد ↢ ( "..ballancee.." دولار 💵 )\n•  الزرف ( "..pppp.." دولار 💵 )\n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..cccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuu.." )\n•  الرصيد ↢ ( "..ballancee.." دولار 💵 )\n•  الزرف ( "..pppp.." دولار 💵 )\n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعندك حساب بنكي ارسل ↢ ( `انشاء حساب بنكي` )","md",true)
 end
@@ -13346,7 +13346,7 @@ if msg.ControllerBot then
 local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-send(msg.chat_id,msg.id,"\n*•  جيتر ماعنده حساب بالبنك 🤣*","md",true)  
+send(msg.chat_id,msg.id,"\n*•  ديكستر ماعنده حساب بالبنك 🤣*","md",true)  
 return false
 end
 local ban = LuaTele.getUser(Remsg.sender.user_id)
@@ -13365,7 +13365,7 @@ Redis:del(CHITIR.."boob"..Remsg.sender.user_id)
 Redis:del(CHITIR.."boobb"..Remsg.sender.user_id)
 Redis:del(CHITIR.."zrfff"..Remsg.sender.user_id)
 Redis:srem(CHITIR.."zrfffid", Remsg.sender.user_id)
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  مسكين مسحت حسابه \n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  مسكين مسحت حسابه \n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعنده حساب بنكي اصلاً ","md",true)
 end
@@ -13376,7 +13376,7 @@ if text == 'حسابه' and tonumber(msg.reply_to_message_id) ~= 0 then
 local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-send(msg.chat_id,msg.id,"\n*•  جيتر ماعنده حساب بالبنك 🤣*","md",true)  
+send(msg.chat_id,msg.id,"\n*•  ديكستر ماعنده حساب بالبنك 🤣*","md",true)  
 return false
 end
 local ban = LuaTele.getUser(Remsg.sender.user_id)
@@ -13390,7 +13390,7 @@ ccccc = Redis:get(CHITIR.."boobb"..Remsg.sender.user_id)
 uuuuu = Redis:get(CHITIR.."bbobb"..Remsg.sender.user_id)
 ppppp = Redis:get(CHITIR.."zrfff"..Remsg.sender.user_id) or 0
 ballanceed = Redis:get(CHITIR.."boob"..Remsg.sender.user_id) or 0
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعنده حساب بنكي ","md",true)
 end
@@ -13427,7 +13427,7 @@ Redis:del(CHITIR.."boob"..coniss)
 Redis:del(CHITIR.."boobb"..coniss)
 Redis:del(CHITIR.."zrfff"..coniss)
 Redis:srem(CHITIR.."zrfffid", coniss)
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  مسكين مسحت حسابه \n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الرصيد ↢ ( "..ballanceed.." دولار 💵 )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  مسكين مسحت حسابه \n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعنده حساب بنكي اصلاً ","md",true)
 end
@@ -13452,7 +13452,7 @@ if Redis:get(CHITIR.."boballcc"..coniss) then
 local yty = Redis:get(CHITIR.."boballname"..coniss)
 local dfhb = Redis:get(CHITIR.."boballbalc"..coniss)
 local fsvhh = Redis:get(CHITIR.."boballban"..coniss)
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..yty.."\n•  الحساب ↢ `"..coniss.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..fsvhh.." )\n•  الرصيد ↢ ( "..dfhb.." دولار 💵 )\n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..yty.."\n•  الحساب ↢ `"..coniss.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..fsvhh.." )\n•  الرصيد ↢ ( "..dfhb.." دولار 💵 )\n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  مافيه حساب بنكي كذا","md",true)
 end
@@ -13676,8 +13676,8 @@ UserNameyr = UserNamey / 10
 UserNameyy = UserNamey - UserNameyr
 Redis:decrby(CHITIR.."boob"..msg.sender.user_id , UserNamey)
 Redis:incrby(CHITIR.."boob"..fsvhhh , math.floor(UserNameyy))
-send(msg.chat_id,msg.id, "حوالة صادرة من بنك جيتر\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمستلم : "..newss.."\nالحساب رقم : `"..text.."`\nنوع البطاقة : "..fsvhh.."\nخصمت 10% رسوم تحويل\nالمبلغ : "..UserNameyy.." دولار 💵","md",true)
-send(fsvhhh,0, "حوالة واردة من بنك جيتر\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمبلغ : "..UserNameyy.." دولار 💵","md",true)
+send(msg.chat_id,msg.id, "حوالة صادرة من بنك ديكستر\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمستلم : "..newss.."\nالحساب رقم : `"..text.."`\nنوع البطاقة : "..fsvhh.."\nخصمت 10% رسوم تحويل\nالمبلغ : "..UserNameyy.." دولار 💵","md",true)
+send(fsvhhh,0, "حوالة واردة من بنك ديكستر\n\nالمرسل : "..news.."\nالحساب رقم : `"..cccc.."`\nنوع البطاقة : "..uuuu.."\nالمبلغ : "..UserNameyy.." دولار 💵","md",true)
 Redis:del(CHITIR.."trans" .. msg.chat_id .. ":" .. msg.sender.user_id) 
 Redis:del(CHITIR.."transn" .. msg.sender.user_id)
 else
@@ -13706,7 +13706,7 @@ if msg.ControllerBot then
 local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-send(msg.chat_id,msg.id,"\n*•  جيتر ماعنده حساب بالبنك 🤣*","md",true)  
+send(msg.chat_id,msg.id,"\n*•  ديكستر ماعنده حساب بالبنك 🤣*","md",true)  
 return false
 end
 local ban = LuaTele.getUser(Remsg.sender.user_id)
@@ -13721,7 +13721,7 @@ ccccc = Redis:get(CHITIR.."boobb"..Remsg.sender.user_id)
 uuuuu = Redis:get(CHITIR.."bbobb"..Remsg.sender.user_id)
 ppppp = Redis:get(CHITIR.."zrfff"..Remsg.sender.user_id) or 0
 ballanceed = Redis:get(CHITIR.."boob"..Remsg.sender.user_id) or 0
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  صار رصيده ↢ ( "..ballanceed.." دولار 💵 )\n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  صار رصيده ↢ ( "..ballanceed.." دولار 💵 )\n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعنده حساب بنكي ","md",true)
 end
@@ -13746,7 +13746,7 @@ if msg.ControllerBot then
 local Remsg = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local UserInfo = LuaTele.getUser(Remsg.sender.user_id)
 if UserInfo and UserInfo.type and UserInfo.type.luatele == "userTypeBot" then
-send(msg.chat_id,msg.id,"\n*•  جيتر ماعنده حساب بالبنك 🤣*","md",true)  
+send(msg.chat_id,msg.id,"\n*•  ديكستر ماعنده حساب بالبنك 🤣*","md",true)  
 return false
 end
 local ban = LuaTele.getUser(Remsg.sender.user_id)
@@ -13761,7 +13761,7 @@ ccccc = Redis:get(CHITIR.."boobb"..Remsg.sender.user_id)
 uuuuu = Redis:get(CHITIR.."bbobb"..Remsg.sender.user_id)
 ppppp = Redis:get(CHITIR.."zrfff"..Remsg.sender.user_id) or 0
 ballanceed = Redis:get(CHITIR.."boob"..Remsg.sender.user_id) or 0
-send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( جيتر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  صار رصيده ↢ ( "..ballanceed.." دولار 💵 )\n✦","md",true)
+send(msg.chat_id,msg.id, "•  الاسم ↢ "..news.."\n•  الحساب ↢ `"..ccccc.."`\n•  بنك ↢ ( ديكستر )\n•  نوع ↢ ( "..uuuuu.." )\n•  الزرف ↢ ( "..ppppp.." دولار 💵 )\n•  صار رصيده ↢ ( "..ballanceed.." دولار 💵 )\n✦","md",true)
 else
 send(msg.chat_id,msg.id, "•  ماعنده حساب بنكي ","md",true)
 end
@@ -15469,7 +15469,7 @@ end
 Redis:del(CHITIR.."Name:Bot") 
 return send(msg_chat_id,msg_id,"٠ تم حذف اسم البوت ","md",true)   
 end
-if text == (Redis:get(CHITIR.."Name:Bot") or "جيتر") then
+if text == (Redis:get(CHITIR.."Name:Bot") or "ديكستر") then
 if Redis:get(CHITIR.."name bot type : ") == "photo" then
   local photo = LuaTele.getUserProfilePhotos(CHITIR)
   local UserInfo = LuaTele.getUser(CHITIR)
@@ -15487,33 +15487,33 @@ if Redis:get(CHITIR.."name bot type : ") == "photo" then
   }
   
   if photo.total_count > 0 then
-    local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+    local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
     local NameBots = {
 "قلب "..NamesBot ,
 "مين مزعلك بس يعيوني",
 "ثانيه واحده بسلك رقم واحده",
-"انا مش فاضي جيتر مكاني اهو",
+"انا مش فاضي ديكستر مكاني اهو",
 "قلبه ودقاته وكل حياته"
 }
   return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,NameBots[math.random(#NameBots)], "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
   else
-    local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+    local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
     local NameBots = {
 "قلب "..NamesBot ,
 "مين مزعلك بس يعيوني",
 "ثانيه واحده بسلك رقم واحده",
-"انا مش فاضي جيتر مكاني اهو",
+"انا مش فاضي ديكستر مكاني اهو",
 "قلبه ودقاته وكل حياته"
 }
   return send(msg_chat_id,msg_id,NameBots[math.random(#NameBots)],"md") 
   end 
   end
-      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
     local NameBots = {
 "قلب "..NamesBot ,
 "مين مزعلك بس يعيوني",
 "ثانيه واحده بسلك رقم واحده",
-"انا مش فاضي جيتر مكاني اهو",
+"انا مش فاضي ديكستر مكاني اهو",
 "قلبه ودقاته وكل حياته"
 }
   return send(msg_chat_id,msg_id,NameBots[math.random(#NameBots)],"md") 
@@ -15540,7 +15540,7 @@ if Redis:get(CHITIR.."name bot type : ") == "photo" then
     }
     
     if photo.total_count > 0 then
-      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
       local BotName = {
       "اسمي "..NamesBot.." يبن العاميه",
       "يارب يكون موضوع مهم بس",
@@ -15550,7 +15550,7 @@ if Redis:get(CHITIR.."name bot type : ") == "photo" then
       }
     return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,BotName[math.random(#BotName)], "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
     else
-      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+      local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
       local BotName = {
       "اسمي "..NamesBot.." يبن العاميه",
       "يارب يكون موضوع مهم بس",
@@ -15561,7 +15561,7 @@ if Redis:get(CHITIR.."name bot type : ") == "photo" then
     return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
     end 
     end
-          local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "جيتر")
+          local NamesBot = (Redis:get(CHITIR.."Name:Bot") or "ديكستر")
       local BotName = {
       "اسمي "..NamesBot.." يبن العاميه",
       "يارب يكون موضوع مهم بس",
@@ -15647,7 +15647,7 @@ Redis:set(CHITIR.."Game:Smile"..msg.chat_id,SM)
 return send(msg_chat_id,msg_id,"٠اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}","md",true)  
 end
 end
-if text == "تويت" or text == "كت تويت" then
+if text == "تويت" or text == "كت" then
 if Redis:get(CHITIR.."Status:Games"..msg.chat_id) then
 local texting = {"اخر افلام شاهدتها", 
 "اخر افلام شاهدتها", 
@@ -15656,7 +15656,7 @@ local texting = {"اخر افلام شاهدتها",
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس جيتر؟ ", 
+"ما هيا عيوب سورس ديكستر؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
@@ -15672,13 +15672,13 @@ local texting = {"اخر افلام شاهدتها",
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس جيتر؟ ", 
+" هل يعجبك سورس ديكستر؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس جيتر؟ ", 
+"اي رايك في سورس ديكستر؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " نسبه الندم عندك للي وثقت فيهم ؟", 
@@ -16006,7 +16006,7 @@ end
 end
 if text == "الاسرع" or text == "ترتيب" then
 if Redis:get(CHITIR.."Status:Games"..msg.chat_id) then
-KlamSpeed = {"سحور","سياره","استقبال","قنفذ","ايفون","بزونه","مطبخ","كرستيانو","دجاجه","مدرسه","الوان","غرفه","ثلاجه","قهوه","سفينه","جيتر","محطه","طياره","رادار","منزل","مستشفى","كهرباء","تفاحه","اخطبوط","سلمون","فرنسا","برتقاله","تفاح","مطرقه","لعبه","شباك","باص","سمكه","ذباب","تلفاز","حاسوب","انترنت","ساحه","جسر"};
+KlamSpeed = {"سحور","سياره","استقبال","قنفذ","ايفون","بزونه","مطبخ","كرستيانو","دجاجه","مدرسه","الوان","غرفه","ثلاجه","قهوه","سفينه","ديكستر","محطه","طياره","رادار","منزل","مستشفى","كهرباء","تفاحه","اخطبوط","سلمون","فرنسا","برتقاله","تفاح","مطرقه","لعبه","شباك","باص","سمكه","ذباب","تلفاز","حاسوب","انترنت","ساحه","جسر"};
 name = KlamSpeed[math.random(#KlamSpeed)]
 Redis:set(CHITIR.."Game:Monotonous"..msg.chat_id,name)
 name = string.gsub(name,"سحور","س ر و ح")
@@ -16014,7 +16014,7 @@ name = string.gsub(name,"سياره","ه ر س ي ا")
 name = string.gsub(name,"استقبال","ل ب ا ت ق س ا")
 name = string.gsub(name,"قنفذ","ذ ق ن ف")
 name = string.gsub(name,"ايفون","و ن ف ا")
-name = string.gsub(name,"جيتر","ر و ف ر ي")
+name = string.gsub(name,"ديكستر","ر و ف ر ي")
 name = string.gsub(name,"مطبخ","خ ب ط م")
 name = string.gsub(name,"كرستيانو","س ت ا ن و ك ر ي")
 name = string.gsub(name,"دجاجه","ج ج ا د ه")
@@ -16627,7 +16627,7 @@ Redis:sadd(CHITIR..'Num:User:Pv',msg.sender.user_id)
 if not msg.Devss then
 local photo = LuaTele.getUserProfilePhotos(CHITIR)
 if not Redis:get(CHITIR.."Start:Bot") then
-local CmdStart = '*\n٠ أهلآ بك في بوت '..(Redis:get(CHITIR.."Name:Bot") or "جيتر")..
+local CmdStart = '*\n٠ أهلآ بك في بوت '..(Redis:get(CHITIR.."Name:Bot") or "ديكستر")..
 '\n٠ اختصاص البوت حماية المجموعات'..
 '\n٠ لتفعيل البوت عليك اتباع مايلي ...'..
 '\n٠ اضف البوت الى مجموعتك'..
@@ -16844,7 +16844,7 @@ data = {
 },
 }
 }
-return send(msg_chat_id,msg_id,"مطور سورس جيتر ٠ @"..chdevolper.."","html",true, false, false, true, reply_markup)
+return send(msg_chat_id,msg_id,"مطور سورس ديكستر ٠ @"..chdevolper.."","html",true, false, false, true, reply_markup)
 end
 if text == '٠ ALTHEEB ٠️' then
 local reply_markup = LuaTele.replyMarkup{
@@ -19115,7 +19115,7 @@ data = {
 }
 }
 local TextHelp = [[*
-٠ أهلا بك في قائمة العاب سورس جيتر اختر نوع الالعاب 
+٠ أهلا بك في قائمة العاب سورس ديكستر اختر نوع الالعاب 
 *]]
 edit(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 end
@@ -19155,7 +19155,7 @@ data = {
 }
 }
 local TextHelp = [[*
-٠ مرحبا بك في الالعاب المتطورة الخاص بسورس جيتر 
+٠ مرحبا بك في الالعاب المتطورة الخاص بسورس ديكستر 
 ٠ اختر اللعبه ثم اختار المحادثة التي تريد اللعب بها
 *]]
 edit(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
@@ -19187,7 +19187,7 @@ local TextHelp = [[*
 ٠ لعبة التخمين ٠ خمن
 ٠ لعبة الاسرع ٠ الاسرع
 ٠ لعبة السمايلات ٠ سمايلات
-٠ لعبة الاسئلة ٠ كت تويت
+٠ لعبة الاسئلة ٠ كت
 ٠ لعبة الاعلام والدول ٠ اعلام
 ٠ لعبة لو خيروك ٠ خيروك
 ٠ لعبة الصراحه والجرأة ٠ صراحه
